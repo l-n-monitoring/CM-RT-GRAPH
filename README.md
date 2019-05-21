@@ -15,3 +15,18 @@ RealTime Cable Modem Graph for Docsis cable modems
 - Upstream Forward Erorr Correction
 - Current Traffic On Cable Interface
 
+***Dashboard***
+![Dashboard](/images/screencapture-localhost-3333-d-6gm-OtWWk-rt-cm-graph-2019-05-20-15_58_40.png)()
+
+**Prerequirements**
+- <a href="https://docs.influxdata.com/influxdb/v1.7/introduction/installation/">InfluxDB</a>
+- <a href="https://docs.influxdata.com/telegraf/v1.10/introduction/installation/">Telegraf</a>
+- <a href="https://grafana.com/docs/installation/">Grafana</a>
+- net-snmp
+- <a href="https://pypi.org/project/puresnmp/">puresnmp</a> (pip3 install puresnmp)
+
+**Installation**
+```
+cd /opt
+git clone 
+```
