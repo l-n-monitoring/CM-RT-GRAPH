@@ -19,7 +19,7 @@ def returnDecMAC(CMMAC):
 
 ## Some globalDefs
 
-TEMPLATE_DIR = '/opt/telegraf/rtPoller/templates/'
+TEMPLATE_DIR = '/opt/RT-CM-GRAPH/telegraf/rtPoller/templates/'
 CMTS_JSON = 'cmts.json'
 TELEGRAF_CONFIG_DIR = '/etc/telegraf/telegraf.d/'
 CMTS_TEMPLATE = ("%stmp.cmts.conf" % (TEMPLATE_DIR))
