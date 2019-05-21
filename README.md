@@ -7,12 +7,12 @@ RealTime Cable Modem Graph for Docsis cable modems
 - Downstream Signal To Noise Ratio
 - Downstream Micro Reflections
 - Downstream Codeword Error Ratio
-- Downstream Forward Erorr Correction
+- Downstream Forward Error Correction
 - Upstream Signal
 - Upstream Signal To Noise Ratio
 - Upstream Cable Modem RX Power
 - Upstream Codeword Error Ratio
-- Upstream Forward Erorr Correction
+- Upstream Forward Error Correction
 - Current Traffic On Cable Interface
 
 ***Dashboard***
