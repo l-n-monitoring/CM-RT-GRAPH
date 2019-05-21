@@ -16,7 +16,7 @@ RealTime Cable Modem Graph for Docsis cable modems
 - Current Traffic On Cable Interface
 
 ***Dashboard***
-![Dashboard](/images/screencapture-localhost-3333-d-6gm-OtWWk-rt-cm-graph-2019-05-20-15_58_40.png)()
+![Dashboard](https://raw.githubusercontent.com/l-n-monitoring/CM-RT-GRAPH/master/images/screencapture-localhost-3333-d-6gm-OtWWk-rt-cm-graph-2019-05-20-15_58_40.png)()
 
 **Prerequirements**
 - <a href="https://docs.influxdata.com/influxdb/v1.7/introduction/installation/">InfluxDB</a>
