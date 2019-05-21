@@ -16,7 +16,7 @@ RealTime Cable Modem Graph for Docsis cable modems
 - Current Traffic On Cable Interface
 
 ***Dashboard***
-![Dashboard](https://raw.githubusercontent.com/l-n-monitoring/CM-RT-GRAPH/master/images/screencapture-localhost-3333-d-6gm-OtWWk-rt-cm-graph-2019-05-20-15_58_40.png)()
+![Dashboard](https://raw.githubusercontent.com/l-n-monitoring/CM-RT-GRAPH/master/images/screencapture-localhost-3333-d-6gm-OtWWk-rt-cm-graph-2019-05-20-15_58_40.png)
 
 **Prerequirements**
 - <a href="https://docs.influxdata.com/influxdb/v1.7/introduction/installation/">InfluxDB</a>
@@ -27,10 +27,61 @@ RealTime Cable Modem Graph for Docsis cable modems
 
 **Installation**
 ```
+sudo su
+pip3 install puresnmp
 cd /opt
 git clone https://github.com/l-n-monitoring/CM-RT-GRAPH.git
+chmod +x /opt/CM-RT-GRAPH/telegraf/rtPoller/clearRtCM.sh
+chmod +x /opt/CM-RT-GRAPH/telegraf/rtPoller/addRtCM.py
+sudo echo "*/1 * * * * root /opt/CM-RT-GRAPH/telegraf/rtPoller/clearRtCM.sh" > /etc/cron.d/rtCheck
+```
+> Edit cmts.json file and add/change your CMTS(es).
+```
+nano /opt/CM-RT-GRAPH/telegraf/rtPoller/templates/cmts.json
+```
+```
+[
+        {
+        "hostname": "10.10.1.8",
+        "community": "sadfssda25234563",
+        "port": 161,
+        "cmCommunity": "352672427643vds!dd"
+        },
+        {
+        "hostname": "10.10.1.9",
+        "community": "sadfssda25234563",
+        "port": 161,
+        "cmCommunity": "352672427643vds!dd"
+        }
+
+]
 
 ```
-```
+**Grafana**
+> Login to your grafana server: http://yourserver.ip:3000/ (admin/admin by default)
 
+***Add Data Source***
+> Let's create data source called "telegraf".
+
+![Add Data Source](https://github.com/l-n-monitoring/CMTS-Monitoring/raw/master/images/create_datasource.jpg)
+> Choose green button: Add data source 
+
+***Save Data Source***
+> Probably influxdb is running on the same server. Database is called "telegraf" and also data source should be called "telegraf".
+
+![Add Data Source](https://github.com/l-n-monitoring/CMTS-Monitoring/raw/master/images/save_datasource.jpg)
+
+***Import Dashboard***
+- Slide over dashboard button and click on "Manage".
+- On the right side click "Import".
+![Add Data Source](https://github.com/l-n-monitoring/CMTS-Monitoring/raw/master/images/manage_dashboard.jpg)
+
+- Click on green button "Upload .json File"
+- Choose RT_CM_GRAPH-GRAFANA.json" located in /opt/CM-RT-GRAPH/telegraf/rtPoller/templates/ and click "Import". " and click "Import".
+
+**Add CM To Real Time polling**
 ```
+/opt/CM-RT-GRAPH/telegraf/rtPoller/addRtCM.py 00:22:33:55:33:11
+```
+>Navigate to http://grafanaip:3000/ choose RT CM GRAPH dashboard and enter cm_mac. Once you'll get the dashboard path you can use direct url. My is http://grafanaip:3000/d/6gm_OtWWk/rt-cm-graph?orgId=1&var-cm_mac=00:22:33:55:33:11. This way you can get direct link.
+
