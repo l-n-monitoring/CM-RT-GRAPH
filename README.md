@@ -28,5 +28,9 @@ RealTime Cable Modem Graph for Docsis cable modems
 **Installation**
 ```
 cd /opt
-git clone 
+git clone https://github.com/l-n-monitoring/CM-RT-GRAPH.git
+
+```
+```
+
 ```
